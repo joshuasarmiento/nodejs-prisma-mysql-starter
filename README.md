@@ -8,6 +8,7 @@ Web application built with Node.js, Express, Prisma, and MySQL2. It allows users
 
 - CRUD operations for products and users
 - API versioning and structured folder organization
+- Type safety and checks to the Products CRUD operations
 
 ## Installation
 
