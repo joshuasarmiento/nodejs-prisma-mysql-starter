@@ -1,9 +1,10 @@
 import { Request, Response } from 'express';
 import prisma from '../prisma/prismaClient';
+import { Product } from '../types/product';
 
 // Create a product
 export const createProduct = async (req: Request, res: Response) => {
-  const { name, description, price } = req.body;
+  const { name, description, price } = req.body as Product; // Type assertion to Product interface
   try {
     const newProduct = await prisma.product.create({
       data: { name, description, price },
@@ -43,7 +44,7 @@ export const getProductById = async (req: Request, res: Response) => {
 // Update a product
 export const updateProduct = async (req: Request, res: Response) => {
   const productId = parseInt(req.params.id);
-  const { name, description, price } = req.body;
+  const { name, description, price } = req.body as Product;; 
   try {
     const updatedProduct = await prisma.product.update({
       where: { id: productId },
